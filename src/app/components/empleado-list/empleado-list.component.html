@@ -1,0 +1,32 @@
+<div class="card text-center">
+    <div class="card-header d-flex justify-content-between align-items-left">
+        <h3>Empleados</h3>
+        <button type="button" routerLink="/empleado/add" class="btn btn-success">Agregar</button>
+    </div>
+    <div class="card-body">
+        <div>
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Id</th>
+                    <th>User Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let empleado of empleado">
+                    <th>{{empleado.id}}</th>
+                    <td>{{empleado.userId}}</td>
+                    <td>{{empleado.title}}</td>
+                    <td>{{empleado.body}}</td>
+                    <td><button type="button" [routerLink]="['/empleado/edit',empleado.id]" class="btn btn-warning"><i class="fas fa-edit"></i></button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="deleteEmpleado(empleado.id)"><i class="far fa-trash-alt"></i></button></td>
+                </tr>
+                </tbody>
+              </table>
+          </div>
+    </div>
+</div>
